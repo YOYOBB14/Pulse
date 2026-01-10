@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Pulse — Live Market</title>
+<title>Pulse — The Attention Market</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <style>
@@ -18,10 +18,10 @@
   --red:#ff3b3b;
   --amber:#ffb020;
 
-  --glow-purple:0 0 60px rgba(177,76,255,.6);
-  --glow-cyan:0 0 60px rgba(47,243,255,.6);
-  --glow-green:0 0 40px rgba(57,255,157,.6);
-  --glow-red:0 0 40px rgba(255,59,59,.6);
+  --glow-purple:0 0 70px rgba(177,76,255,.55);
+  --glow-cyan:0 0 70px rgba(47,243,255,.55);
+  --glow-green:0 0 50px rgba(57,255,157,.55);
+  --glow-red:0 0 50px rgba(255,59,59,.55);
 }
 
 * { box-sizing:border-box }
@@ -29,28 +29,29 @@
 body {
   margin:0;
   background:
-    radial-gradient(1000px 500px at 20% -10%, rgba(177,76,255,.4), transparent),
-    radial-gradient(900px 400px at 80% 10%, rgba(47,243,255,.35), transparent),
-    radial-gradient(700px 350px at 50% 90%, rgba(255,59,59,.25), transparent),
+    radial-gradient(1100px 500px at 20% -10%, rgba(177,76,255,.45), transparent),
+    radial-gradient(900px 400px at 80% 10%, rgba(47,243,255,.4), transparent),
+    radial-gradient(700px 350px at 50% 90%, rgba(255,59,59,.3), transparent),
     var(--bg);
   color:var(--text);
   font-family:Inter,system-ui,sans-serif;
-  animation:pulseBg 7s ease-in-out infinite;
+  animation:pulseBg 8s ease-in-out infinite;
 }
 
 @keyframes pulseBg {
   0%,100% { filter:brightness(1); }
-  50% { filter:brightness(1.06); }
+  50% { filter:brightness(1.08); }
 }
 
 section {
-  padding:120px 7%;
+  padding:130px 7%;
   border-bottom:1px solid rgba(255,255,255,.08);
+  position:relative;
 }
 
-h1 { font-size:clamp(48px,7vw,92px); margin:0 }
-h2 { font-size:clamp(34px,5vw,56px); margin-bottom:20px }
-h3 { margin-top:30px }
+h1 { font-size:clamp(50px,7vw,96px); margin:0 }
+h2 { font-size:clamp(34px,5vw,58px); margin-bottom:24px }
+h3 { margin-top:32px }
 
 p {
   max-width:1100px;
@@ -67,24 +68,26 @@ p {
   background:linear-gradient(90deg,var(--purple),var(--cyan));
   color:#000;
   font-weight:800;
-  letter-spacing:.12em;
+  letter-spacing:.14em;
   font-size:12px;
   box-shadow:var(--glow-purple);
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 
 .grid {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
-  margin-top:40px;
+  gap:28px;
+  margin-top:44px;
 }
 
 .card {
-  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02)),var(--panel);
-  border-radius:20px;
-  padding:30px;
-  border:1px solid rgba(255,255,255,.15);
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.02)),
+    var(--panel);
+  border-radius:22px;
+  padding:32px;
+  border:1px solid rgba(255,255,255,.16);
 }
 
 .win { border-color:var(--green); box-shadow:var(--glow-green) }
@@ -94,18 +97,19 @@ p {
 .highlight { color:var(--cyan); text-shadow:var(--glow-cyan) }
 .danger { color:var(--red); text-shadow:var(--glow-red) }
 
+/* GAME ELEMENTS */
 .market-bar {
   display:flex;
-  gap:12px;
-  margin-top:30px;
+  gap:14px;
+  margin-top:34px;
 }
 
 .btn {
   flex:1;
-  padding:18px;
-  border-radius:14px;
+  padding:20px;
+  border-radius:16px;
   text-align:center;
-  font-weight:800;
+  font-weight:900;
   cursor:pointer;
   transition:.2s;
 }
@@ -113,32 +117,34 @@ p {
 .btn.yes { background:rgba(57,255,157,.18); color:var(--green) }
 .btn.no  { background:rgba(255,59,59,.18); color:var(--red) }
 
-.btn:hover { transform:scale(1.05) }
+.btn:hover { transform:scale(1.06) }
 
 .countdown {
-  margin-top:18px;
+  margin-top:22px;
   font-size:14px;
-  letter-spacing:.15em;
+  letter-spacing:.18em;
   color:var(--amber);
 }
 
+/* LIVE TICKER */
 .ticker {
   position:fixed;
   bottom:0;
   left:0;
   right:0;
-  background:rgba(0,0,0,.65);
-  backdrop-filter:blur(6px);
-  padding:10px 20px;
+  background:rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);
+  padding:12px 22px;
   font-size:14px;
   white-space:nowrap;
   overflow:hidden;
+  z-index:50;
 }
 
 .ticker span {
   display:inline-block;
-  padding-right:40px;
-  animation:scroll 22s linear infinite;
+  padding-right:60px;
+  animation:scroll 26s linear infinite;
 }
 
 @keyframes scroll {
@@ -146,30 +152,12 @@ p {
   100% { transform:translateX(-100%) }
 }
 </style>
-  .ambient-pulse {
-  position: fixed;
-  top: 80px;
-  right: 40px;
-  font-size: 12px;
-  letter-spacing: 0.25em;
-  color: rgba(47,243,255,0.7);
-  z-index: 100;
-  animation: ambientPulse 6s infinite;
-}
-
-@keyframes ambientPulse {
-  0%,100% { opacity: 0; }
-  30%,60% { opacity: 1; }
-}
-
 </head>
 
 <body>
 
-<div class="ambient-pulse">TREND DETECTED · CULTURE SHIFTING</div>
-  
 <!-- SLIDE 1 -->
-<section >
+<section>
   <span class="tag">MARKET LIVE</span>
   <h1>Pulse</h1>
   <h2>The NASDAQ of the Attention Economy.</h2>
@@ -187,21 +175,19 @@ p {
     <div class="btn no">NO ↓</div>
   </div>
 
-  <div class="countdown">⏱ MARKET RESOLVES IN <span id="timer">00:20</span></div>
+  <div class="countdown">⏱ MARKET RESOLVES IN <span id="timer">00:30</span></div>
 </section>
 
 <!-- SLIDE 2 -->
 <section>
-  <span class="tag">MACRO SIGNAL</span>
+  <span class="tag">MACRO SHIFT</span>
   <h2>The Macro Thesis ("The Long Degeneracy")</h2>
 
   <p>The "American Dream" (save for 30 years, buy a house) is dead for Gen Z.</p>
-
   <p>
     Financial Nihilism has shifted behavior from Investing to Hunting.
     They don’t want 5% annual returns; they want Agency and Escape.
   </p>
-
   <p>
     They flock to Crypto and Sports Betting not because they are stupid,
     but because it’s the only place where their decisions feel like they matter.
@@ -214,26 +200,7 @@ p {
   </div>
 
   <p><strong>The Opportunity:</strong> A platform that offers the Agency of trading with the Speed of TikTok.</p>
-</section class="vision-break">
-  <p class="vision-line">
-    Every viral moment is a market waiting to be created.
-  </p>
-
-  .vision-break {
-  padding: 140px 7%;
-  background: transparent;
-  border-bottom: none;
-}
-
-.vision-line {
-  font-size: 28px;
-  font-weight: 600;
-  max-width: 900px;
-  line-height: 1.4;
-  color: var(--cyan);
-  text-shadow: var(--glow-cyan);
-}
-
+</section>
 
 <!-- SLIDE 3 -->
 <section>
@@ -247,29 +214,25 @@ p {
 
   <div class="grid">
     <div class="card win">
-      <h3>The Snack (1-5 Minutes)</h3>
-      <p>Impulse. Low ticket size ($5-$100). Pure dopamine. Keeps the user in the session.</p>
+      <h3>The Snack (1–5 Minutes)</h3>
+      <p>Impulse. Low ticket size ($5–$100). Pure dopamine. Keeps the user in the session.</p>
     </div>
 
     <div class="card info">
-      <h3>The Session (10-60 Minutes)</h3>
+      <h3>The Session (10–60 Minutes)</h3>
       <p>Engagement. Medium ticket size. Bets on live events (Football match, Apple Keynote). High "Cash Out" activity.</p>
     </div>
 
     <div class="card">
-      <h3>The Bet (6-24 Hours)</h3>
+      <h3>The Bet (6–24 Hours)</h3>
       <p>Strategy. High ticket size ($100+). Daily predictions (Crypto, Politics, Internet Culture). The "Anchor" that brings the user back tomorrow.</p>
     </div>
   </div>
-  <div class="context-hint">
-  🔥 12,431 users active in culture markets
-</div>
-
 </section>
 
 <!-- SLIDE 4 -->
 <section>
-  <span class="tag">EDGE DETECTED</span>
+  <span class="tag">EDGE</span>
   <h2>The "Secret Sauce" (Why Users Return)</h2>
 
   <p>The Core Differentiator: We don't sell "Gambling"; we sell Edge.</p>
@@ -293,86 +256,59 @@ p {
 
 <!-- SLIDE 5 -->
 <section>
-  <span class="tag">ENGINE RUNNING</span>
+  <span class="tag">ENGINE</span>
   <h2>Product Features (The Addiction Engine)</h2>
 
   <div class="grid">
     <div class="card info">
       <h3>The "State Screen" (No Home Screen)</h3>
-      <p>
-        Users enter directly into action.
-        Triggers: "Markets Heating Up", "Crowded Trade Detected".
-      </p>
+      <p>Users enter directly into action. Triggers: "Markets Heating Up", "Crowded Trade Detected".</p>
     </div>
 
     <div class="card alert">
       <h3>The Panic Button</h3>
-      <p>
-        Feature: Active Cash-Out during the bet window.
-        Psychology: Turns passive waiting into active risk management.
-      </p>
+      <p>Active Cash-Out during the bet window. Turns passive waiting into active risk management.</p>
     </div>
 
     <div class="card">
       <h3>The 2nd Screen Edge</h3>
-      <p>
-        Feature: Picture-in-Picture live stream integration for betting while watching.
-      </p>
+      <p>Picture-in-Picture live stream integration for betting while watching.</p>
     </div>
   </div>
 </section>
 
 <!-- SLIDE 6 -->
 <section>
-  <span class="tag">STATE SCREEN</span>
+  <span class="tag">STATE</span>
   <h2>The "State Screen" (No More Home Screen)</h2>
 
   <p>
-    Innovation: We killed the static "Home Screen."
+    We killed the static "Home Screen."
     Users enter directly into a "State Screen" that tells them where the action is right now.
   </p>
 
   <p>
-    Dynamic Triggers:<br>
     "Markets are heating up"<br>
     "3 Unusual Setups Live"<br>
     "Crowded Market Detected (Contrarian Opportunity)"
   </p>
 
   <p>
-    The Interface:<br>
-    The Feed (TikTok Style): Focuses on Urgency.<br>
-    The Portfolio (Robinhood Style): Anchor Positions.
+    The Feed (TikTok Style): Urgency.<br>
+    The Portfolio (Robinhood Style): Anchors.
   </p>
 
   <p>
     Liquidity Engine: Dynamic Multipliers incentivizing early entrants in 24h pools.
   </p>
 </section>
-  
-.vision-break {
-  padding: 140px 7%;
-  background: transparent;
-  border-bottom: none;
-}
-
-.vision-line {
-  font-size: 28px;
-  font-weight: 600;
-  max-width: 900px;
-  line-height: 1.4;
-  color: var(--cyan);
-  text-shadow: var(--glow-cyan);
-}
 
 <!-- SLIDE 7 -->
 <section>
-  <span class="tag">IDENTITY LOCKED</span>
+  <span class="tag">IDENTITY</span>
   <h2>Personalized Edge Tags (Retention)</h2>
 
-  <p>
-    The Concept: Instead of a generic Leaderboard, we give users Identity.
-  </p>
+  <p>Instead of a generic Leaderboard, we give users Identity.</p>
 
   <div class="grid">
     <div class="card win">"You are a Sniper (Good at late entries)"</div>
@@ -381,44 +317,33 @@ p {
   </div>
 
   <p>
-    Session Time: Short bets (Snacks) keep the app open now.<br>
-    Return Rate: Long bets (Anchors) guarantee the app opens tomorrow.
+    Session Time: Short bets keep the app open now.<br>
+    Return Rate: Long bets guarantee the app opens tomorrow.
   </p>
 
   <p class="danger">
     "Your 24h position closes in 10 mins. Sentiment flipped. Cash Out now?"
   </p>
-
-  <p class="muted">
-  NOW: Short bets keep the app open.<br>
-  NEXT: Anchor positions bring users back tomorrow.<br>
-  LATER: Culture becomes measurable.
-</p>
-
 </section>
 
 <!-- SLIDE 8 -->
 <section>
-  <span class="tag">REVENUE STACK</span>
+  <span class="tag">REVENUE</span>
   <h2>Business Model (The Revenue Engine)</h2>
 
   <p>
-    The Strategy: A multi-layered revenue stack that captures value from every interaction—not just the bet.
+    Monetizing hype, anxiety, and data through a multi-layered revenue stack.
   </p>
 
   <p><strong>1. The House Take (Transactional Revenue)</strong></p>
   <p>
-    Smart Rake on Winnings: We take a percentage (2-5%) only from the winners of the pool.
+    Smart Rake on Winnings (2–5%) only from winners.
     Psychologically frictionless.
   </p>
 
   <p>
-    The "Panic Button" Spread: Wider spread on early exits.
-    Monetizing stress and desire for immediate liquidity.
-  </p>
-
-  <p>
-    Instant Access Fees: Charging for "Flash Transfers" to Revolut / Crypto wallets.
+    The "Panic Button" Spread monetizes early exits.
+    Instant Access Fees for Flash Transfers.
   </p>
 
   <p><strong>2. The Oracle Model (Data Monetization)</strong></p>
@@ -428,7 +353,7 @@ p {
 
   <p><strong>3. Gamification & Retention</strong></p>
   <p>
-    Pulse Pro ($9.99/mo), Micro-transactions, Digital Flex (cosmetics, status).
+    Pulse Pro ($9.99/mo), micro-transactions, digital flex.
   </p>
 
   <p><strong>4. B2B: Sponsored Pools</strong></p>
@@ -443,29 +368,30 @@ p {
 
 <!-- SLIDE 9 -->
 <section>
-  <span class="tag">VIRAL LOOP</span>
+  <span class="tag">GROWTH</span>
   <h2>Growth Strategy (The "Market Maker" Economy)</h2>
 
   <p>
-    Community-Sourced Markets: Users propose markets and earn % of rake.
+    Community-Sourced Markets: users propose markets and earn % of rake.
   </p>
 
   <p>
-    Creator Markets: Influencers launch markets on their own live events.
+    Creator Markets: influencers launch markets on their own live events.
   </p>
 
   <p>
-    Social Proof: Shareable win cards — "I predicted this 10 seconds before it happened".
+    Social Proof: shareable win cards —
+    "I predicted this 10 seconds before it happened".
   </p>
 </section>
 
 <!-- SLIDE 10 -->
 <section>
-  <span class="tag">FINAL STATE</span>
+  <span class="tag">VISION</span>
   <h2>The Ask & Vision</h2>
 
   <p>
-    Vision: To become the default trending layer for the entire internet –
+    Vision: To become the default trending layer for the entire internet —
     turning every viral moment into a tradeable event.
   </p>
 
@@ -473,30 +399,11 @@ p {
     Ask: Funding to finalize the product and launch the first Creator Markets.
   </p>
 
-  <p class="highlight">
-  Ask: Funding to finalize the product and launch the first Creator Markets.
-</p>
-
-<p class="muted">
-  Today it’s prediction markets.  
-  Tomorrow it’s how the internet measures belief.
-</p>
-
+  <p class="muted">
+    Today it’s prediction markets.<br>
+    Tomorrow it’s how the internet measures belief.
+  </p>
 </section>
-.vision-break {
-  padding: 140px 7%;
-  background: transparent;
-  border-bottom: none;
-}
-
-.vision-line {
-  font-size: 28px;
-  font-weight: 600;
-  max-width: 900px;
-  line-height: 1.4;
-  color: var(--cyan);
-  text-shadow: var(--glow-cyan);
-}
 
 <div class="ticker">
   <span>
@@ -508,11 +415,12 @@ p {
 </div>
 
 <script>
-let t = 20;
+let t = 30;
 setInterval(() => {
   if (t > 0) {
     t--;
-    document.getElementById("timer").innerText = "00:" + String(t).padStart(2, "0");
+    document.getElementById("timer").innerText =
+      "00:" + String(t).padStart(2, "0");
   }
 }, 1000);
 </script>
