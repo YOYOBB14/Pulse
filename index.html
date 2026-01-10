@@ -146,12 +146,30 @@ p {
   100% { transform:translateX(-100%) }
 }
 </style>
+  .ambient-pulse {
+  position: fixed;
+  top: 80px;
+  right: 40px;
+  font-size: 12px;
+  letter-spacing: 0.25em;
+  color: rgba(47,243,255,0.7);
+  z-index: 100;
+  animation: ambientPulse 6s infinite;
+}
+
+@keyframes ambientPulse {
+  0%,100% { opacity: 0; }
+  30%,60% { opacity: 1; }
+}
+
 </head>
 
 <body>
 
+<div class="ambient-pulse">TREND DETECTED · CULTURE SHIFTING</div>
+  
 <!-- SLIDE 1 -->
-<section>
+<section >
   <span class="tag">MARKET LIVE</span>
   <h1>Pulse</h1>
   <h2>The NASDAQ of the Attention Economy.</h2>
@@ -196,7 +214,26 @@ p {
   </div>
 
   <p><strong>The Opportunity:</strong> A platform that offers the Agency of trading with the Speed of TikTok.</p>
-</section>
+</section class="vision-break">
+  <p class="vision-line">
+    Every viral moment is a market waiting to be created.
+  </p>
+
+  .vision-break {
+  padding: 140px 7%;
+  background: transparent;
+  border-bottom: none;
+}
+
+.vision-line {
+  font-size: 28px;
+  font-weight: 600;
+  max-width: 900px;
+  line-height: 1.4;
+  color: var(--cyan);
+  text-shadow: var(--glow-cyan);
+}
+
 
 <!-- SLIDE 3 -->
 <section>
@@ -224,6 +261,10 @@ p {
       <p>Strategy. High ticket size ($100+). Daily predictions (Crypto, Politics, Internet Culture). The "Anchor" that brings the user back tomorrow.</p>
     </div>
   </div>
+  <div class="context-hint">
+  🔥 12,431 users active in culture markets
+</div>
+
 </section>
 
 <!-- SLIDE 4 -->
@@ -308,6 +349,21 @@ p {
     Liquidity Engine: Dynamic Multipliers incentivizing early entrants in 24h pools.
   </p>
 </section>
+  
+.vision-break {
+  padding: 140px 7%;
+  background: transparent;
+  border-bottom: none;
+}
+
+.vision-line {
+  font-size: 28px;
+  font-weight: 600;
+  max-width: 900px;
+  line-height: 1.4;
+  color: var(--cyan);
+  text-shadow: var(--glow-cyan);
+}
 
 <!-- SLIDE 7 -->
 <section>
@@ -332,6 +388,13 @@ p {
   <p class="danger">
     "Your 24h position closes in 10 mins. Sentiment flipped. Cash Out now?"
   </p>
+
+  <p class="muted">
+  NOW: Short bets keep the app open.<br>
+  NEXT: Anchor positions bring users back tomorrow.<br>
+  LATER: Culture becomes measurable.
+</p>
+
 </section>
 
 <!-- SLIDE 8 -->
@@ -409,7 +472,31 @@ p {
   <p class="highlight">
     Ask: Funding to finalize the product and launch the first Creator Markets.
   </p>
+
+  <p class="highlight">
+  Ask: Funding to finalize the product and launch the first Creator Markets.
+</p>
+
+<p class="muted">
+  Today it’s prediction markets.  
+  Tomorrow it’s how the internet measures belief.
+</p>
+
 </section>
+.vision-break {
+  padding: 140px 7%;
+  background: transparent;
+  border-bottom: none;
+}
+
+.vision-line {
+  font-size: 28px;
+  font-weight: 600;
+  max-width: 900px;
+  line-height: 1.4;
+  color: var(--cyan);
+  text-shadow: var(--glow-cyan);
+}
 
 <div class="ticker">
   <span>
